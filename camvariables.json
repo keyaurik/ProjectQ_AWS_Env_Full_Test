@@ -89,7 +89,7 @@
 			"type": "string"
 		}, {
 			"description": "Subnet Name",
-			"default" : "test_projectq2",
+			"default" : "",
 			"hidden": false,
 			"immutable": false,
 			"label": "Subnet Name",
