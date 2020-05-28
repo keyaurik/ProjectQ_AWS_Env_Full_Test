@@ -1,5 +1,5 @@
 {
-    "name": "Windows 2016 EC2 on AWS - ProjectQ",
+    "name": "ProjectQ AWS Environment (Test)",
     "description": "AWS Windows example",
     "version": "1.0",
     "imageUrl": "./assets/svg/IBM_WebSphere_Standalone.svg",
@@ -19,7 +19,7 @@
         "githubRepoUrl": "",
         "githubAccessToken": "",
         "relativePathToTemplateFolder": "AWS/terraform/singlefile/hcl",
-        "templateFileName": "scenario1.tf"
+        "templateFileName": "awsenvtest.tf"
       }
     },
     "metadata": {
