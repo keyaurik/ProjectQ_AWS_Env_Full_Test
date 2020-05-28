@@ -27,7 +27,7 @@ variable "aws_region" {
 
 variable "subnet_name" {
   description = "Subnet Name"
-  default = "test_projectq2"
+  default = ""
 }
 
 variable "aws_image_size" {
@@ -55,20 +55,28 @@ variable "aws_image" {
   type        = "string"
   description = "AMI ID"
 }
+  
+resource "tls_private_key" "ssh" {
+    algorithm = "RSA"
+}
+resource "aws_key_pair" "auth" {
+    key_name = "${var.aws_key_pair_name}"
+    public_key = "${tls_private_key.ssh.public_key_openssh}"
+}
 
-resource "aws_key_pair" "test_projectq2_microsoft2016" {
+resource "aws_key_pair" "fullenvtest" {
   key_name   = "${var.public_ssh_key_name}"
   public_key = "${var.public_ssh_key}"
 }
 
-resource "aws_instance" "test_projectq2_microsoft2016" {
+resource "aws_instance" "fullenvtest" {
   instance_type = "${var.aws_image_size}"
   ami           = "${var.aws_image}"
   subnet_id     = "${data.aws_subnet.selected.id}"
-  key_name      = "${aws_key_pair.test_projectq2_microsoft2016.id}"
+  key_name      = "${aws_key_pair.fullenvtest.id}"
   tags          = "${module.camtags.tagsmap}"
 }
 
 output "ip_address" {
-  value = "${length(aws_instance.test_projectq2_microsoft2016.public_ip) > 0 ? aws_instance.test_projectq2_microsoft2016.public_ip : aws_instance.test_projectq2_microsoft2016.private_ip}"
+  value = "${length(aws_instance.fullenvtest.public_ip) > 0 ? aws_instance.fullenvtest.public_ip : aws_instance.fullenvtest.private_ip}"
 }
