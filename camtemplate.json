@@ -23,9 +23,9 @@
       }
     },
     "metadata": {
-      "displayName": "Amazon EC2 Virtual Server with SSH Key - HCL",
+      "displayName": "ProjectQ AWS Environment",
       "providerDisplayName": "IBM",
-      "longDescription": "Use this cloud resource template to quickly provision a Ubuntu 14.04 64 bit virtual server with ssh key into an existing Virtual Private Cloud (VPC) and on an existing network.",
+      "longDescription": "Use this cloud resource template to provision a service that creates a full environment within AWS that deploys a RedHat Bastion Node, Microsoft Server 2016 Instance, and S3 Bucket.",
       "bullets": [
        {
          "title": "Clouds",
@@ -33,19 +33,19 @@
        },
        {
          "title": "Operating systems supported",
-         "description": "AWS: Ubuntu 14.04 LTS"
+         "description": "AWS: Windows Server 2016, RHEL 8, S3 Bucket"
        },
        {
          "title": "Topology",
-         "description": "AWS: 1 virtual machine"
+         "description": "AWS: 2 virtual machines and 1 S3 Storage Bucket"
        },
        {
          "title": "Default virtual machine settings",
-         "description": "<ul><li>AWS:<ul style=\"margin-left: 20px;\"><li>Flavor: t2.micro, Cores = 1, Memory = 1GB</li><li>Network: Private IP - Computed, Public IP - Computed</li></ul></li></ul>"
+         "description": "<ul><li>AWS:<ul style=\"margin-left: 20px;\"><li>Flavor: (MS 2016) t2.micro, Cores = 1, Memory = 1GB  (RHEL 8) t2.micro, Cores = 1, Memory = 1GB</li><li>Network: Private IP - Computed, Public IP - Computed</li></ul></li></ul>"
        },
        {
          "title": "Usage and special notes",
-         "description": "<ol class=\"list-numbering\"><li>Creates a virtual server with an ssh key provided by the user into an existing virtual private cloud specified by the user.</li><li>Deployment takes approximately 5 minutes to complete.</li><li>To access the application and virtual machines, please see the instructions in the output log.</li></ol>"
+         "description": "<ol class=\"list-numbering\"><li>This service provides the ability to provision an S3 Amazon storage bucket, Windows Server 2016 EC2 instance, and an RHEL bastion in Amazon Web Services</li><li>Deployment takes approximately 5 minutes to complete.</li><li>To access the application and virtual machines, please see the instructions in the output log.</li></ol>"
        }
      ],
       "featuredImageUrl": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/ic_patternengine_50.png",
